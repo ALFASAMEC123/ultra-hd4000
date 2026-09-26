@@ -43,11 +43,7 @@ dependencies {
 }
 
 // Add client variant for client source set
-configurations {
-    clientCompileOnly {
-        extendsFrom configurations.minecraftClientOnlyNamedCompile
-    }
-}
+clientCompileOnly "com.mojang:minecraft:${project.minecraft_version}:client"
 
 loom {
     splitEnvironmentSourceSets()
