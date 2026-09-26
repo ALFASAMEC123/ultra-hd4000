@@ -3,11 +3,31 @@
 build/
 out/
 
-# Gradle wrapper
-gradle/
-gradlew
-gradlew.bat
-gradle-*.zip
+# Gradle
+.gradle/
+build/
+out/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temp
+*.tmp
+*.temp
+*.bak
 
 # IDE
 .idea/
