@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.ultra.hd4000.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ChunkBuilderMixin",
+    "ChunkRenderDispatcherMixin",
+    "WorldRendererMixin",
+    "EntityTrackerMixin",
+    "PacketSenderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

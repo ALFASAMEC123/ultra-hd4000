@@ -29,7 +29,7 @@ public class ChunkBuilderMixin {
                                    ChunkRenderDispatcher.RenderChunkBuilder builder, 
                                    CallbackInfoReturnable<List<BakedQuad>> cir) {
         
-        if (!UltraHD4000Mod.RENDER.getConfig().enableSoftwareVertex) return;
+        if (!UltraHD4000ClientMod.RENDER.getConfig().enableSoftwareVertex) return;
         
         int chunkX = ChunkSectionPos.getSectionCoord(renderChunk.getOrigin().getX());
         int chunkY = ChunkSectionPos.getSectionCoord(renderChunk.getOrigin().getY());
@@ -40,7 +40,7 @@ public class ChunkBuilderMixin {
         SoftwareVertexProcessor.processSection(chunkX, chunkY, chunkZ, sectionData);
         
         int sectionIndex = (chunkY & 0xF) * 256 + (chunkZ & 0xF) * 16 + (chunkX & 0xF);
-        UltraHD4000Mod.RENDER.uploadChunkSection(sectionIndex, sectionData);
+        UltraHD4000ClientMod.RENDER.uploadChunkSection(sectionIndex, sectionData);
         
         cir.setReturnValue(List.of());
     }

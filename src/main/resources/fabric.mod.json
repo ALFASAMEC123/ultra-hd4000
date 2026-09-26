@@ -15,7 +15,10 @@
     "main": ["com.ultra.hd4000.UltraHD4000Mod"],
     "client": ["com.ultra.hd4000.UltraHD4000ClientMod"]
   },
-  "mixins": ["ultra-hd4000.mixins.json"],
+  "mixins": [
+    "ultra-hd4000.mixins.json",
+    "ultra-hd4000-client.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.19.5",
     "minecraft": "~1.21.1",

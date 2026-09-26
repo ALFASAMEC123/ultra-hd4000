@@ -12,9 +12,9 @@ public class MinecraftServerMixin {
     
     @Inject(method = "tick", at = @At("HEAD"))
     private void onTickStart(CallbackInfo ci) {
-        if (!UltraHD4000Mod.TICK.getConfig().enablePriorityScheduler) return;
+        if (!UltraHD4000ClientMod.TICK.getConfig().enablePriorityScheduler) return;
         
         MinecraftServer server = (MinecraftServer) (Object) this;
-        UltraHD4000Mod.TICK.onServerTickStart(server);
+        UltraHD4000ClientMod.TICK.onServerTickStart(server);
     }
 }

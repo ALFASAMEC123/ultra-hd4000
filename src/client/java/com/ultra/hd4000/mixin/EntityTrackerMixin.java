@@ -15,11 +15,11 @@ public class EntityTrackerMixin {
     
     @Inject(method = "addEntity", at = @At("RETURN"))
     private void onEntityAdded(Entity entity, CallbackInfo ci) {
-        if (!UltraHD4000Mod.ENTITY.getConfig().enableEntityInstancing) return;
+        if (!UltraHD4000ClientMod.ENTITY.getConfig().enableEntityInstancing) return;
     }
     
     @Inject(method = "removeEntity", at = @At("HEAD"))
     private void onEntityRemoved(Entity entity, CallbackInfo ci) {
-        if (!UltraHD4000Mod.ENTITY.getConfig().enableEntityInstancing) return;
+        if (!UltraHD4000ClientMod.ENTITY.getConfig().enableEntityInstancing) return;
     }
 }

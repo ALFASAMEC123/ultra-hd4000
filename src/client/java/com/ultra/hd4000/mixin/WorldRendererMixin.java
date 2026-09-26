@@ -15,14 +15,14 @@ public class WorldRendererMixin {
     
     @Inject(method = "renderChunkLayer", at = @At("HEAD"), cancellable = true)
     private void onRenderChunkLayer(int layer, CallbackInfo ci) {
-        if (!UltraHD4000Mod.RENDER.getConfig().enableCpuCulling) return;
+        if (!UltraHD4000ClientMod.RENDER.getConfig().enableCpuCulling) return;
         
         ci.cancel();
     }
     
     @Inject(method = "updateFrustum", at = @At("RETURN"))
     private void onUpdateFrustum(Camera camera, CallbackInfo ci) {
-        if (!UltraHD4000Mod.RENDER.getConfig().enableCpuCulling) return;
+        if (!UltraHD4000ClientMod.RENDER.getConfig().enableCpuCulling) return;
         
         Matrix4f viewProj = new Matrix4f(camera.getProjectionMatrix())
             .mul(camera.getViewMatrix());
@@ -30,6 +30,6 @@ public class WorldRendererMixin {
         float[] matrixArray = new float[16];
         viewProj.get(matrixArray);
         
-        UltraHD4000Mod.RENDER.cullAndDraw(matrixArray);
+        UltraHD4000ClientMod.RENDER.cullAndDraw(matrixArray);
     }
 }

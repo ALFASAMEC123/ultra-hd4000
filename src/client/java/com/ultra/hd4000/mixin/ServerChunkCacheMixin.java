@@ -14,15 +14,15 @@ public class ServerChunkCacheMixin {
     
     @Inject(method = "loadChunk", at = @At("RETURN"))
     private void onChunkLoad(ChunkPos pos, CallbackInfo ci) {
-        if (!UltraHD4000Mod.CHUNK.getConfig().enableOffHeapChunks) return;
+        if (!UltraHD4000ClientMod.CHUNK.getConfig().enableOffHeapChunks) return;
         
-        UltraHD4000Mod.CHUNK.onChunkLoad(pos);
+        UltraHD4000ClientMod.CHUNK.onChunkLoad(pos);
     }
     
     @Inject(method = "unloadChunk", at = @At("HEAD"))
     private void onChunkUnload(ChunkPos pos, CallbackInfo ci) {
-        if (!UltraHD4000Mod.CHUNK.getConfig().enableOffHeapChunks) return;
+        if (!UltraHD4000ClientMod.CHUNK.getConfig().enableOffHeapChunks) return;
         
-        UltraHD4000Mod.CHUNK.onChunkUnload(pos);
+        UltraHD4000ClientMod.CHUNK.onChunkUnload(pos);
     }
 }

@@ -14,9 +14,9 @@ public class PacketSenderMixin {
     
     @Inject(method = "sendPacket", at = @At("HEAD"), cancellable = true)
     private void onSendPacket(Packet<?> packet, CallbackInfo ci) {
-        if (!UltraHD4000Mod.NETWORK.getConfig().enableDeltaCompression) return;
+        if (!UltraHD4000ClientMod.NETWORK.getConfig().enableDeltaCompression) return;
         
-        Packet<?> compressed = UltraHD4000Mod.NETWORK.compressPacket(
+        Packet<?> compressed = UltraHD4000ClientMod.NETWORK.compressPacket(
             (ServerPlayNetworkHandler) (Object) this, packet);
         
         if (compressed != packet) {

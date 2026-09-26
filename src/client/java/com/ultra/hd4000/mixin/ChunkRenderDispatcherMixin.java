@@ -14,14 +14,14 @@ public class ChunkRenderDispatcherMixin {
     
     @Inject(method = "rebuildChunk", at = @At("HEAD"), cancellable = true)
     private void onRebuildChunk(RenderChunk renderChunk, CallbackInfo ci) {
-        if (!UltraHD4000Mod.RENDER.getConfig().enableCompressedVbo) return;
+        if (!UltraHD4000ClientMod.RENDER.getConfig().enableCompressedVbo) return;
         
         ci.cancel();
     }
     
     @Inject(method = "drawChunk", at = @At("HEAD"), cancellable = true)
     private void onDrawChunk(RenderChunk renderChunk, CallbackInfo ci) {
-        if (!UltraHD4000Mod.RENDER.getConfig().enableIndirectDraw) return;
+        if (!UltraHD4000ClientMod.RENDER.getConfig().enableIndirectDraw) return;
         
         ci.cancel();
     }
