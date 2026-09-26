@@ -42,6 +42,13 @@ dependencies {
     testImplementation "org.openjdk.jmh:jmh-generator-annprocess:1.37"
 }
 
+// Add client variant for client source set
+configurations {
+    clientCompileOnly {
+        extendsFrom configurations.minecraftClientOnlyNamedCompile
+    }
+}
+
 loom {
     splitEnvironmentSourceSets()
     mods {
