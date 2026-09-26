@@ -29,7 +29,6 @@ java {
 repositories {
     mavenCentral()
     maven { url 'https://maven.fabricmc.net' }
-    maven { url 'https://maven.modrinth.com' }
 }
 
 dependencies {
