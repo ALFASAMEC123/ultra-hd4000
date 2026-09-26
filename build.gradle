@@ -37,13 +37,6 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
     
-    // Off-heap storage
-    implementation "net.openhft:chronicle-map:3.25.4"
-    implementation "org.agrona:agrona:1.18.0"
-    
-    // Compression
-    implementation "com.github.luben:zstd-jni:1.5.6-4"
-    
     // Profiling
     testImplementation "org.openjdk.jmh:jmh-core:1.37"
     testImplementation "org.openjdk.jmh:jmh-generator-annprocess:1.37"
