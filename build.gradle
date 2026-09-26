@@ -5,7 +5,7 @@ buildscript {
         gradlePluginPortal()
     }
     dependencies {
-        classpath "net.fabricmc.fabric-loom-remap:net.fabricmc.fabric-loom-remap.gradle.plugin:1.14.10"
+        classpath "fabric-loom:fabric-loom.gradle.plugin:1.7.4"
     }
 }
 
@@ -14,7 +14,7 @@ plugins {
     id 'maven-publish'
 }
 
-apply plugin: 'net.fabricmc.fabric-loom-remap'
+apply plugin: 'fabric-loom'
 
 group = 'com.ultra.hd4000'
 version = '1.0.0'
@@ -41,9 +41,6 @@ dependencies {
     testImplementation "org.openjdk.jmh:jmh-core:1.37"
     testImplementation "org.openjdk.jmh:jmh-generator-annprocess:1.37"
 }
-
-// Add client variant to main compile classpath so client-only code compiles
-
 
 loom {
     splitEnvironmentSourceSets()
