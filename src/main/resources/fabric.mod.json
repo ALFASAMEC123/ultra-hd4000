@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "ultra-hd4000",
+  "version": "1.0.0",
+  "name": "Ultra HD 4000",
+  "description": "Ultra-optimized rendering and game logic for Intel HD 4000 (Ivy Bridge)",
+  "authors": ["strane"],
+  "contact": {
+    "homepage": "https://github.com/strane/ultra-hd4000",
+    "sources": "https://github.com/strane/ultra-hd4000"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "main": ["com.ultra.hd4000.UltraHD4000Mod"],
+    "client": ["com.ultra.hd4000.UltraHD4000ClientMod"]
+  },
+  "mixins": ["ultra-hd4000.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": ">=0.102.0"
+  }
+}

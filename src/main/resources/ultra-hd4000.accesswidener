@@ -1,0 +1,45 @@
+# Ultra HD 4000 Access Widener
+# Grants access to private/internal fields for optimization hooks
+
+# Chunk rendering
+access class net.minecraft.client.render.chunk.ChunkBuilder
+access class net.minecraft.client.render.chunk.ChunkRenderDispatcher
+access class net.minecraft.client.render.chunk.RenderChunk
+access class net.minecraft.client.render.chunk.ChunkRenderDispatcher$RenderChunkBuilder
+
+# World rendering
+access class net.minecraft.client.render.WorldRenderer
+access class net.minecraft.client.render.Camera
+access class net.minecraft.client.render.Frustum
+
+# Server chunk cache
+access class net.minecraft.server.world.ServerChunkCache
+access class net.minecraft.server.world.ChunkHolder
+access class net.minecraft.server.world.ChunkHolder$Level
+
+# Entity tracking
+access class net.minecraft.server.network.EntityTracker
+access class net.minecraft.server.network.EntityTrackerEntry
+
+# Minecraft server tick
+access class net.minecraft.server.MinecraftServer
+access class net.minecraft.server.ServerTask
+access class net.minecraft.server.WorldGenerationProgressLogger
+
+# Packet sending
+access class net.minecraft.server.network.ServerPlayNetworkHandler
+access class net.minecraft.network.Packet
+access class net.minecraft.network.packet.s2c.play.EntityPositionS2CPacket
+access class net.minecraft.network.packet.s2c.play.ChunkDataS2CPacket
+
+# Sodium compat (if present)
+access class me.jellysquid.mods.sodium.client.render.chunk.SodiumChunkBuilder
+access class me.jellysquid.mods.sodium.client.render.chunk.ChunkRenderDispatcherAccessor
+access class me.jellysquid.mods.sodium.client.render.chunk.compact.CompactChunkBuilder
+
+# Lithium compat
+access class me.jellysquid.mods.lithium.common.scheduler.Scheduler
+access class me.jellysquid.mods.lithium.common.scheduler.TaskScheduler
+
+# FerriteCore compat
+access class com.malte0811.ferritecore.client.FerriteCoreClient

@@ -1,0 +1,76 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabricmc.net' }
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "net.fabricmc.fabric-loom-remap:net.fabricmc.fabric-loom-remap.gradle.plugin:1.14.10"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+apply plugin: 'net.fabricmc.fabric-loom-remap'
+
+group = 'com.ultra.hd4000'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabricmc.net' }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+    
+    // Profiling
+    testImplementation "org.openjdk.jmh:jmh-core:1.37"
+    testImplementation "org.openjdk.jmh:jmh-generator-annprocess:1.37"
+}
+
+// Add client variant to main compile classpath so client-only code compiles
+
+
+loom {
+    splitEnvironmentSourceSets()
+    mods {
+        "ultra-hd4000" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation" << "-parameters"
+    options.release = 21
+}
+
+jar {
+    manifest {
+        attributes(
+            "Fabric-Mod": "ultra-hd4000",
+            "Main-Class": "com.ultra.hd4000.UltraHD4000Mod",
+            "Mod-Version": project.version.toString(),
+            "Minecraft-Version": project.minecraft_version
+        )
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from(configurations.runtimeClasspath.filter { it.name.endsWith(".so") || it.name.endsWith(".dll") || it.name.endsWith(".dylib") }) {
+        into("lib")
+    }
+}
