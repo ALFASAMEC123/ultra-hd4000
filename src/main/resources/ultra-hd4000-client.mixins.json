@@ -6,8 +6,10 @@
     "ChunkBuilderMixin",
     "ChunkRenderDispatcherMixin",
     "WorldRendererMixin",
+    "ChunkRenderDispatcherMixin",
     "EntityTrackerMixin",
-    "PacketSenderMixin"
+    "PacketSenderMixin",
+    "ServerChunkCacheMixin"
   ],
   "injectors": {
     "defaultRequire": 1

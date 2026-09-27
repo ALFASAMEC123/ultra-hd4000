@@ -3,7 +3,6 @@
   "package": "com.ultra.hd4000.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ServerChunkCacheMixin",
     "MinecraftServerMixin"
   ],
   "injectors": {
